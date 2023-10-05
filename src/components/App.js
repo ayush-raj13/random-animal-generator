@@ -1,33 +1,45 @@
-import AnimalShow from './AnimalShow'
-import { useState } from 'react';
+// App.js
+import React, { useState } from "react";
+import "../styles/App.css";
+import AnimalShow from "./AnimalShow";
 
 function App() {
-    const animalArray = ['cow', 'bird', 'cat', 'dog', 'gator', 'horse'];
+  const animalArray = ["cow", "bird", "cat", "dog", "gator", "horse"];
 
-    function randomAnimal() {
-        return animalArray[Math.floor(Math.random() * animalArray.length)];
-    }
+  function randomAnimal() {
+    return animalArray[Math.floor(Math.random() * animalArray.length)];
+  }
 
-    const [animals, setAnimals] = useState([]);
+  const [animals, setAnimals] = useState([]);
 
-    const handleClick = () => {
-        setAnimals([...animals, randomAnimal()]);
-    }
+  const handleClick = () => {
+    setAnimals([...animals, randomAnimal()]);
+  };
 
-    const renderedAnimals = animals.map((animal, index) => {return <AnimalShow type={animal} key={index} />});
+  const renderedAnimals = animals.map((animal, index) => (
+    <div className="animal-card" key={index}>
+      <AnimalShow type={animal} />
+    </div>
+  ));
 
-
-    return (
-        <div className='flex flex-col space-y-8 bg-rose-300 min-h-screen'>
-            <div className='mx-auto py-8'>
-                <button onClick={handleClick} className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'>Click Me!</button>
-            </div>
-            <div className='grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1'>
-                {renderedAnimals}
-            </div>
+  return (
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="header-text">Random Animal Viewer</h1>
+      </header>
+      <main className="app-main">
+        <div className="button-container">
+          <button className="custom-button" onClick={handleClick}>
+            Click Me!
+          </button>
         </div>
-        
-    );
+        <div className="animal-grid">{renderedAnimals}</div>
+      </main>
+      <footer className="footer-text">
+        &copy; {new Date().getFullYear()} Your App Name
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
