@@ -7,7 +7,9 @@
   --text-color: #333; /* Main text color */
   --footer-text-color: #6a737d; /* Footer text color */
 }
-
+*{
+  font-family: 'Poppins', sans-serif;
+}
 /* App Container Styles */
 .app-container {
   font-family: Arial, sans-serif;
@@ -15,11 +17,12 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  padding-top: 180px;
 }
 
 /* Header Styles */
 .app-header {
-  background-color: var(--primary-color);
+  
   color: white;
   padding: 10px;
 }
