@@ -16,27 +16,21 @@ const animalMapper = {
   horse,
 };
 
-function AnimalShow({ type }) {
-  const [heartSize, setHeartSize] = useState(0);
+function AnimalShow({ type, darkMode }) {
+    const [heartSize, setHeartSize] = useState(0);
 
-  function handleClick() {
-    setHeartSize(heartSize + 1);
-  }
+    function handleClick() {
+        setHeartSize(heartSize + 1);
+    }
 
-  return (
-    <div
-      onClick={handleClick}
-      className="shadow-xl rounded-lg inline-block relative bg-rose-100"
-    >
-      <img src={animalMapper[type]} alt="animal" className="h-64" />
-      <img
-        src={heart}
-        alt="heart"
-        style={{ width: 10 + 10 * heartSize + "px" }}
-        className="absolute bottom-0 right-0 max-h-64"
-      />
-    </div>
-  );
+    const containerClass = darkMode ? 'bg-gray-300' : 'bg-rose-100';
+
+    return (
+        <div onClick={handleClick} className={`shadow-xl rounded-lg inline-block relative ${containerClass}`}>
+            <img src={animalMapper[type]} alt='animal' className='h-64' />
+            <img src={heart} alt='heart' style={{ width: 10 + 10 * heartSize + 'px' }} className='absolute bottom-0 right-0 max-h-64' />
+        </div>
+    );
 }
 
 export default AnimalShow;

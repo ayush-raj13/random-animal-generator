@@ -93,10 +93,15 @@
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
 }
 
 /* Additional Styles for Animal Images */
 .animal-card img {
   max-width: 100%;
   height: auto;
+  margin: auto;
 }
